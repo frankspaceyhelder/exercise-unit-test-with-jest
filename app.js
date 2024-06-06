@@ -5,12 +5,16 @@ const fromEuroToDollar = function(valueInEuro) {
     // return the dollar value
     return valueInDollar;
 }
-const fromDollarToYen = (USD,JPY) => {
-    return USD/JPY
+const fromDollarToYen = (USD) => {
+    const dollarToEuro = USD / 1.07;
+    const valueInYen = dollarToEuro * 156.5;
+    return valueInYen;
 }
 
-const fromYenToPound = (JPY,GBP) => {
-    return JPY * GBP
+const fromYenToPound = (JPY) => {
+    const yenToEuro = JPY / 156.5;
+    const valueInPounds = yenToEuro * 0.87;
+    return valueInPounds;
 }
 
 const sum = (a,b) => {
@@ -18,6 +22,6 @@ const sum = (a,b) => {
 }
 console.log(sum(7,3))
 
-module.exports = { sum };
+
 // We include fromEuroToDollar here as well because it needs to be exported
 module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound }
